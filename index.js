@@ -1,4 +1,4 @@
-// const env = require("dotenv").config();
+require("dotenv").config();
 
 const express = require("express");
 const ejs = require("ejs");
@@ -28,12 +28,10 @@ const authenticateUserController = require("./controllers/authenticateUser");
 const logOutController = require("./controllers/logOut");
 
 // Commenting out my connection string
-mongoose.connect("mongodb+srv://Yash46:atlasAtlas@fullstackdev46.vhmyvfb.mongodb.net/winter22?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-});
-// mongoose.connect("ENTER YOUR CONNECTION STRING HERE", {
+// mongoose.connect("mongodb+srv://Yash46:atlasAtlas@fullstackdev46.vhmyvfb.mongodb.net/winter22?retryWrites=true&w=majority", {
 //     useNewUrlParser: true,
 // });
+mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true});
 
 app.use(expressSession({secret: "siddh797", resave: false, saveUninitialized: true}));
 app.use(express.json());
