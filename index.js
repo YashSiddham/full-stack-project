@@ -16,6 +16,7 @@ const loggedInMiddleware = require("./middlewares/isLoggedIn");
 
 // Importing Controllers
 const homeController = require("./controllers/home");
+const mongoStore = require("connect-mongo");
 const g2Controller = require("./controllers/g2");
 const gController = require("./controllers/g");
 const loginController = require("./controllers/login");
@@ -33,7 +34,7 @@ const logOutController = require("./controllers/logOut");
 // });
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true});
 
-app.use(expressSession({secret: "siddh797", resave: false, saveUninitialized: true}));
+app.use(expressSession({secret: "siddh797", resave: false, saveUninitialized: true, store: mongoStore.create({mongoUrl: process.env.MONGO_SESSION_URL})}));
 app.use(express.json());
 app.use("*", loggedInMiddleware);
 app.use(express.urlencoded({ extended: true }));
