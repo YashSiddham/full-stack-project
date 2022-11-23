@@ -27,7 +27,7 @@ const newUserController = require("./controllers/createNewUser");
 const authenticateUserController = require("./controllers/authenticateUser");
 const logOutController = require("./controllers/logOut");
 
-Commenting out my connection string
+// Commenting out my connection string
 mongoose.connect("mongodb+srv://Yash46:atlasAtlas@fullstackdev46.vhmyvfb.mongodb.net/winter22?retryWrites=true&w=majority", {
     useNewUrlParser: true,
 });
