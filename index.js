@@ -8,7 +8,7 @@ const User = require("./models/User");
 
 // Initializing Express
 const app = express();
-const port = 4646;
+const port = 3000;
 
 // Importing Middlewares
 const isAuthenticatedMiddleware = require("./middlewares/isAuthenticated");
