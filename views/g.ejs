@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <%- include("layouts/header") -%> 
+
+    <body id="page-top">
+
+        <%- include("layouts/navbar") -%> 
+
+        <header class="bg-primary bg-gradient text-white" style="margin-bottom: 220px">
+            <div class="container px-4 text-center">
+                <h1 class="fw-bolder">G</h1>
+                <p class="lead">Here are your details</p>
+            </div>
+
+<!--            <div class="container" style="width: 50%">-->
+<!--              <form method="POST" action="/g">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="licenseNumber" style="margin-bottom: 5px; font-weight: 700; padding-left: 10px;">License Number:</label>-->
+<!--                  <input type="text" class="form-control" id="license_no" name="license_no" placeholder="D1111-22222-33333">-->
+<!--                </div>-->
+<!--                <div class="col-12">-->
+<!--                  <button class="btn btn-primary" type="submit" style="margin-top: 30px;-->
+<!--                  margin-left: 45%;-->
+<!--                  margin-right: 45%;-->
+<!--                  background-color: white;-->
+<!--                  color: #0d6efd;">Submit form</button>-->
+<!--                </div>-->
+<!--              </form>-->
+<!--            </div>-->
+        </header>
+
+        <% if (userDetail.first_name) { %>
+            <div class="row" style="margin-top: 80px;">
+                <div class="offset-3 col-6">
+                    <form method="POST" action="/updateUserDetail">
+                        <h4 class="mb-5 text-center fs-2">Personal Information</h4>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">First name</label>
+                                <input type="text" class="form-control"
+                                       id="firstName"
+                                       name="firstName"
+                                       placeholder="John"
+                                       disabled
+                                       value= <%= userDetail.first_name %> >
+
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">Last name</label>
+                                <input type="text" class="form-control"
+                                       id="lastName"
+                                       name="lastName"
+                                       placeholder="Doe"
+                                       disabled
+                                       value= <%= userDetail.last_name %> >
+
+                            </div>
+                        </div>
+                        <div class="row g-3" style="margin-top: 3px;">
+                            <div class="col-sm-8">
+                                <label for="license" class="form-label">License Number</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="license"
+                                       name="license"
+                                       placeholder="D1111-22222-33333"
+                                       disabled
+                                       value= <%= userDetail.license_no %> >
+
+                                <input type="text"
+                                       class="form-control"
+                                       id="_id"
+                                       name="_id"
+                                       placeholder="D1111-22222-33333"
+                                       hidden
+                                       value= <%= userDetail._id %> >
+
+                            </div>
+                        </div>
+                        <div class="row g-3" style="margin-top: 3px;">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">Age</label>
+                                <input type="text" class="form-control"
+                                       id="age"
+                                       name="age"
+                                       placeholder="22"
+                                       disabled
+                                       value= <%= userDetail.age %> >
+
+                            </div>
+
+                        </div>
+
+                        <h4 class="mb-5 text-center fs-2" style="margin-top: 80px;">Vehicle Information</h4>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="make" class="form-label">Make</label>
+                                <input type="text" class="form-control"
+                                       id="make"
+                                       name="make"
+                                       placeholder="Honda"
+                                       value= <%= userDetail.car_details.make %>>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="model" class="form-label">Model</label>
+                                <input type="text" class="form-control"
+                                       id="model"
+                                       name="model"
+                                       placeholder="Civic"
+                                       value= <%= userDetail.car_details.model %> >
+
+                            </div>
+                        </div>
+
+                        <div class="row g-3" style="margin-top: 3px;">
+                            <div class="col-sm-6">
+                                <label for="year" class="form-label">Year</label>
+                                <input type="text" class="form-control"
+                                       id="year"
+                                       name="year"
+                                       placeholder="2015"
+                                       value= <%= userDetail.car_details.year %> >
+
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="plateNumber" class="form-label">Plate Number</label>
+                                <input type="text" class="form-control"
+                                       id="plateNumber"
+                                       name="plateNumber"
+                                       placeholder="NAMA3T3"
+                                       value= <%= userDetail.car_details.plate_no %> >
+
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 25px;
+                                        margin-top: 25px;
+                                        margin-left: 25.5%;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                    Agree to terms and conditions
+                                </label>
+                                <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12" style="margin-bottom: 150px;">
+                            <button class="btn btn-primary" type="submit" style="margin-top: 30px;
+                                            margin-left: 45%;
+                                            margin-right: 45%;
+                                            background-color: #0d6efd;
+            color: white;">Update Info</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        <% } %>
+
+        <%- include("layouts/footer") -%> 
+        <%-  include("layouts/scripts")-%> 
+    </body>
+</html>
